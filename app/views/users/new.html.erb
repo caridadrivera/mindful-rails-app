@@ -1,1 +1,20 @@
-<%= render 'form' %>
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+<% end %>
+
+
+<div class="row">
+    <%= form_for(@user) do |f| %>
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control', require: true %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control', require: true %>
+
+      <%= f.submit "Sign Up", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>

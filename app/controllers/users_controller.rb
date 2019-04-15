@@ -1,21 +1,12 @@
 class UsersController < ApplicationController
 
-  def home
-    @user = User.find_or_create_by(user_params)
-
+  def new
+    @user = User.new
   end
 
-  def index
-    
+  def create
+    @user = User.create
   end
 
-  def show
 
-  end
-
-  private
-
-  def user_params
-
-  end
 end
