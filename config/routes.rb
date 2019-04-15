@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :friends
+  resources :friendships
   resources :activities
   resources :days
   resources :users
