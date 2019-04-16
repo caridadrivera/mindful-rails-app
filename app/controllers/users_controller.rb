@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
-  before_action :this_user, only: [:show, :edit, :update]
+  before_action :this_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.all
   end
 
   def show
+
   end
 
   def new

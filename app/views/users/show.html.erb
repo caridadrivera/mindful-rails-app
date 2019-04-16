@@ -1,38 +1,5 @@
-<%# User's info  %>
 <%= @user.name %>
 <%= @user.age %>
 <%= @user.email %>
 <%= @user.password %>
 <%= @user.about %>
-
-<br>
-<br>
-
-<%= Date.today %><br>
-<% if @user.is_today %>
-  <% @user.today.activities.each do |activity| %>
-    <%= activity.name %>
-  <% end %>
-  <%= link_to "View Activities to add", activities_path %>
-<% end %>
-
-<br>
-<br>
-<br>
-
-
-<% @user.activities.each do |activity| %>
-  <%= activity.name %><br>
-<% end %>
-
-<br>
-<br>
-
-<% @user.friends.each do |friend| %>
-  <%= link_to friend.name, user_path(friend.id) %><br>
-  <% if friend.is_today %>
-    <% friend.today.activities.each do |activity| %>
-      <%= activity.name %><br>
-    <% end %>
-  <% end %>
-<% end %>
