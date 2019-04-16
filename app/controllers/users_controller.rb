@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-  before_action :this_user, only: [:show, :edit, :update]
+  skip_before_action :authorized, only: [:new, :create]
+  before_action :this_user, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @users = User.all
+  def home
+
   end
 
   def show
@@ -36,7 +37,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def user_params()
+  def user_params
     params.require(:user).permit(:email, :password, :name, :age, :about)
   end
 end
