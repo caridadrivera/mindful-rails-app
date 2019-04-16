@@ -1,30 +1,18 @@
+<%= form_for(@user) do |f| %>
+  <%= f.label :email %>
+  <%= f.email_field :email, class: 'form-control', require: true %><br>
 
-<% if flash[:errors] %>
-  <% flash[:errors].each do |error| %>
-    <p><%= error %></p>
-  <% end %>
-<% end %>
+  <%= f.label :password %>
+  <%= f.password_field :password, class: 'form-control', require: true %><br>
 
-<%= form_for @user do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br />
-  <br />
+  <%= f.text_field :name %><br>
+
   <%= f.label :age %>
-  <%= f.number_field :age %>
-  <br />
-  <br />
+  <%= f.number_field :age %><br>
+
   <%= f.label :about %>
-  <%= f.check_box :about%>
-  <br />
-  <br />
-  <%= f.label :img_url, "Image Url" %>
-  <%= f.text_field :img_url %>
-  <br />
-  <br />
-  <%= f.label :dumpster_id %>
-  <%= f.collection_select :dumpster_id, @dumpsters, :id, :nickname, prompt: true %>
-  <br />
-  <br />
-  <%= f.submit text %>
+  <%= f.text_area :about %>
+
+  <%= f.submit "Sign Up", class: "btn btn-primary" %>
 <% end %>

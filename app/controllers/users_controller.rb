@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :this_user, only: [:index, :edit, :update]
+  before_action :this_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -14,7 +14,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params())
+    @user = User.create(user_params)
+    redirect_to @user
   end
 
   def edit
@@ -22,7 +23,8 @@ class UsersController < ApplicationController
   end
 
   def update
-
+    @user.update(user_params)
+    redirect_to @user
   end
 
   def destroy
@@ -35,7 +37,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def user_params(*args)
-    params.require(:user).permit(*args)
+  def user_params()
+    params.require(:user).permit(:email, :password, :name, :age, :about)
   end
 end

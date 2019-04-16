@@ -1,5 +1,5 @@
 class ActivitiesController < ApplicationController
-  before_action :this_activity, only: [:index, :edit, :update]
+  before_action :this_activity, only: [:show, :edit, :update]
 
   def index
     @activities = Activity.all
@@ -14,7 +14,7 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    @activity = Activity.create(activity_params())
+    @activity = Activity.create(activity_params)
   end
 
   def edit
@@ -22,7 +22,8 @@ class ActivitiesController < ApplicationController
   end
 
   def update
-
+    @activity.update(activity_params)
+    redirect_to @activity
   end
 
   def destroy
@@ -35,7 +36,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
   end
 
-  def activity_params(*args)
-    params.require(:activity).permit(*args)
+  def activity_params()
+    params.require(:activity).permit(:name, :description, :length)
   end
 end
