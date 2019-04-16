@@ -3,11 +3,11 @@ class DaysController < ApplicationController
 
   def index
     @days = Day.all
-
+    @users = User.all
   end
 
   def show
-    @User = User.all
+    @users = User.all
   end
 
   def new

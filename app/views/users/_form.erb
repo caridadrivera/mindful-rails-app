@@ -1,0 +1,18 @@
+<%= form_for(@user) do |f| %>
+  <%= f.label :email %>
+  <%= f.email_field :email, class: 'form-control', require: true %><br>
+
+  <%= f.label :password %>
+  <%= f.password_field :password, class: 'form-control', require: true %><br>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :age %>
+  <%= f.number_field :age %><br>
+
+  <%= f.label :about %>
+  <%= f.text_area :about %>
+
+  <%= f.submit "Sign Up", class: "btn btn-primary" %>
+<% end %>
