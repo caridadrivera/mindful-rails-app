@@ -10,22 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2019_04_12_210235) do
+ActiveRecord::Schema.define(version: 2019_04_15_221418) do
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.text "instruction"
     t.integer "length"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "activity_instances", force: :cascade do |t|
     t.integer "day_id"
+    t.integer "activity_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "days", force: :cascade do |t|
     t.string "date"
-    t.integer "happiness"
+    t.integer "happiness", default: 0
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

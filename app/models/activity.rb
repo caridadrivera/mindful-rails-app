@@ -1,3 +1,3 @@
 class Activity < ApplicationRecord
-  belongs_to :day
+  has_many :activity_instances
 end
