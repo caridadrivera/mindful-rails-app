@@ -15,7 +15,8 @@ class DaysController < ApplicationController
   end
 
   def create
-    @day = Day.create(day_params(:date))
+    # byebug
+    @day = Day.create(day_params)
     redirect_to day_path(@day)
   end
 
@@ -24,7 +25,8 @@ class DaysController < ApplicationController
   end
 
   def update
-
+    @day.update(day_params)
+    redirect_to @day
   end
 
   def destroy
@@ -37,8 +39,8 @@ class DaysController < ApplicationController
     @day = Day.find(params[:id])
   end
 
-  def day_params(*args)
-    params.require(:day).permit(*args)
+  def day_params()
+    params.require(:day).permit(:date, :user_id)
   end
 
 end

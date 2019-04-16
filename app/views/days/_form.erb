@@ -1,5 +1,11 @@
 <%= form_for @day do |f| %>
-  <%= f.date_select :date, :start_year=>2000 %>
+  <%= f.label :date %>
+  <%= f.date_field :date %><br>
+
+  <%= f.label :user_id %>
+  <%= f.number_field :user_id %><br>
+
+
   <%= f.submit %>
 
 <% end %>
