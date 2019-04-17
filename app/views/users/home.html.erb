@@ -23,9 +23,9 @@
             </nav>
             <div class="main-text-box">
                 <h1>Happy Tracker<br>Where happiness starts</h1>
-                <%= button_to "Sign Up", new_user_path, {method: :get} %>
-                <%= button_to "Log In", new_user_path, {method: :get} %>
-
+                <a class="btn btn-full" href="#">Sign Up</a>
+                <%= link_to "Sign Up", new_user_path %>
+                <a class="btn btn-ghost" href="#">Log In</a>
             </div>
 
         </header>

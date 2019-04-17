@@ -1,9 +1,9 @@
 
-<h1>Sign up</h1>
-
-<h4><%= flash[:notice] %></h4>
-
-
+<% if flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+<% end %>
 
 
 <div class="row">
