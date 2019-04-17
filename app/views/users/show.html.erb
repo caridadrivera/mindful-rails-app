@@ -1,5 +1,25 @@
-<%= @user.name %>
-<%= @user.age %>
-<%= @user.email %>
-<%= @user.password %>
-<%= @user.about %>
+<% if current_user == @user %>
+<h1> Profile </h1>
+
+   <div class="row">
+      <h2><%= "Welcome back #{@user.name.capitalize}!" %></h2>
+      <p class="long-copy">
+        <img src=<%= @user.img_url %> />
+        </p>
+        <p class ="long-copy"><%= @user.about %>
+          </p>
+        </div>
+
+
+<%= button_to 'Logout', logout_path, method: :delete %>
+<%= button_to 'Settings', edit_user_path, method: :patch %>
+
+
+
+
+ <%= button_to 'Delete this Account', user_path(@user), method: :delete, data: { confirm: 'are u sure lol' } %>
+
+ <% else  %>
+
+ <h1> not your page lolz</h1>
+<% end %>

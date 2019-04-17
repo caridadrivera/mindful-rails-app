@@ -1,1 +1,18 @@
-<%= render "form" %>
+<div class="container">
+    <%= form_for(@user) do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name,require: true %><br>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, require: true %><br>
+
+      <%= f.label :img_url, "Upload profile image" %>
+      <%= f.text_field :img_url, require: true %>
+      <br /><br />
+
+      <%= f.label :about %>
+      <%= f.text_area :about, require: true%>
+      <br /><br />
+      <%= f.submit "Edit", class: "btn btn-primary" %>
+    <% end %>
+</div>

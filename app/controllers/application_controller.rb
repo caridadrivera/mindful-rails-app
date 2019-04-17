@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
     def current_user
       # User.find would throw an error if we cannot find the user
-      User.find_by({ id: session[:user_id] })
+      User.find_by({id: session[:user_id]})
     end
 
     def logged_in?
@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     end
 
     def authorized
-      redirect_to login_path unless logged_in?
+      redirect_to '/' unless logged_in?
     end
 
 

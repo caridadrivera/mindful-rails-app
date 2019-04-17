@@ -1,18 +1,23 @@
-<%= form_for(@user) do |f| %>
-  <%= f.label :email %>
-  <%= f.email_field :email, class: 'form-control', require: true %><br>
 
-  <%= f.label :password %>
-  <%= f.password_field :password, class: 'form-control', require: true %><br>
+<h1> </h1>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
+<div class="container">
+    <%= form_for(@user) do |f| %>
+      <%= f.label :email %>
+      <%= f.email_field :email, require: true %><br>
 
-  <%= f.label :age %>
-  <%= f.number_field :age %><br>
+      <%= f.label :password %>
+      <%= f.password_field :password, require: true %><br>
 
-  <%= f.label :about %>
-  <%= f.text_area :about %>
+      <%= f.label :name %>
+      <%= f.text_field :name,require: true %><br>
 
-  <%= f.submit "Sign Up", class: "btn btn-primary" %>
-<% end %>
+      <%= f.label :age %>
+      <%= f.number_field :age, require: true %><br>
+
+      <%= f.label :about %>
+      <%= f.text_area :about, require: true%>
+      <br /><br />
+      <%= f.submit "Sign Up", class: "btn btn-primary" %>
+    <% end %>
+</div>
