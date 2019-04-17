@@ -8,8 +8,6 @@ class ApplicationController < ActionController::Base
     end
 
     def logged_in?
-      # nil is falsey in ruby
-      # a user instance is truthy
       !!current_user
     end
 
@@ -17,12 +15,6 @@ class ApplicationController < ActionController::Base
       redirect_to '/' unless logged_in?
     end
 
-  def logged_in?
-    !!current_user
-  end
 
-  def authorized
-    redirect_to login_path unless logged_in?
-  end
 
 end

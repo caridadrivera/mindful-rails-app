@@ -1,4 +1,3 @@
-<% @days.each do |day| %>
-  <%= day.date  %>
-  <%= @users.find(day.user_id).name %><br>
+<% @user.days.each do |day| %>
+  <%= day.date  %><br>
 <% end %>

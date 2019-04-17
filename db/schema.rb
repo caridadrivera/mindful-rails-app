@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_17_001808) do
+ActiveRecord::Schema.define(version: 2019_04_17_135941) do
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(version: 2019_04_17_001808) do
     t.datetime "updated_at", null: false
     t.string "email"
     t.string "password_digest"
-    t.string "img_url"
   end
 
 end

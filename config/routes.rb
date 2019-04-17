@@ -2,21 +2,15 @@ Rails.application.routes.draw do
 
   root 'sessions#index'
 
-  resources :sessions, only: [:new, :create, :destroy]
-  resources :activity_instances, only: [:new, :create, :show, :delete, :update]
+  resources :session
   resources :friendships
   resources :activities
-  resources :days
-  resources :users, only: [:show, :create, :show, :new, :edit, :update]
+  resources :users
 
+  get "/users/:id/days", to: "users#days_index", as: "days"
+  post "/activity_instances/new", to: "activities#create_activity_instance"
+  get "/", to: "sessions#new", as: "login"
+  post "/",   to: 'sessions#create'
+  delete "/", to: "sessions#destroy", as: "logout"
 
-  get "/login", to: "sessions#new", as: "login"
-  post "/login",   to: 'sessions#create'
-  delete "/logout", to: "sessions#destroy", as: "logout"
-  patch "users/:id/edit", to: "users#edit"
-
-
-
-  root 'homes#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

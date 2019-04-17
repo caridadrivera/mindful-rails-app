@@ -15,7 +15,26 @@ class ActivitiesController < ApplicationController
 
   def create
     @activity = Activity.create(activity_params)
+    redirect_to activities_path
   end
+
+  def create_activity_instance
+    check_today
+    added_activity = ActivityInstance.create(day_id: @today.id, activity_id: flash[:activity_id])
+    if added_activity.valid?
+      flash[:message] = "Activity Added"
+    end
+    redirect_to activities_path
+  end
+
+  def check_today
+    if this_day = current_user.days.find_by(date: Date.today)
+      @today = this_day
+    else
+      @today = Day.create(date: Date.today, user_id: current_user.id)
+    end
+  end
+
 
   def edit
 

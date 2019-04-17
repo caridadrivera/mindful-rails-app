@@ -1,0 +1,9 @@
+<%= form_for @testing do |f| %>
+  <%= f.date_field :test %>
+<%= f.submit %>
+
+<% end %>
+
+<% @user.days.each do |day| %>
+  <%= day.date  %><br>
+<% end %>
