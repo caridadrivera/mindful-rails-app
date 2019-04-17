@@ -7,11 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.create(name:"John", age:26, about:"About mee")
-User.create(name:"Cari", age:26, about:"About cari")
-User.create(name:"peter", age:30, about:"About peter")
-User.create(name:"george", age:21, about:"About george")
-
 
 Activity.create(name:"yoga", description:"yoga stuff", instruction:"do this for yoga", length:10)
 Activity.create(name:"meditation", description:"meditation stuff", instruction:"do this for meditation", length:5)

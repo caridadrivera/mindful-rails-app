@@ -1,10 +1,10 @@
 
   class SessionsController < ApplicationController
     # before_action :authorized comes from ApplicationController
-    skip_before_action :authorized, only: [:new, :create]
+    skip_before_action :authorized, only: [:new, :create, :index]
 
     def new
-      render :new #looks in app/views/sessions/new.html.erb
+      render :new
     end
 
     def create #handles the POST request to /login
@@ -19,8 +19,8 @@
         # redirect_to user_path(@user)
         redirect_to @user
       else
-        flash[:notice] = 'nope'
-        redirect_to login_path
+        flash[:notice] = 'Please enter a valid email and password'
+        redirect_to '/'
       end
     end
 

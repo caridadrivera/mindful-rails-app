@@ -7,32 +7,29 @@
 
 <br>
 <br>
-
+Date:
 <%= Date.today %><br>
+Todays Activities: <br>
 <% if @user.is_today %>
   <% @user.today.activities.each do |activity| %>
-    <%= activity.name %>
+    <%= activity.name %><br>
   <% end %>
-  <%= link_to "View Activities to add", activities_path %>
-<% end %>
+<% end %><br>
+<%= link_to "View Full Activities History", days_path %><br>
+<%= link_to "View Activities to add", activities_path %>
 
 <br>
 <br>
 <br>
-
-
-<% @user.activities.each do |activity| %>
-  <%= activity.name %><br>
-<% end %>
-
-<br>
-<br>
-
-<% @user.friends.each do |friend| %>
+Friends:
+<% @user.friends.each do |friend| %><br>
   <%= link_to friend.name, user_path(friend.id) %><br>
   <% if friend.is_today %>
     <% friend.today.activities.each do |activity| %>
       <%= activity.name %><br>
     <% end %>
   <% end %>
-<% end %>
+<% end %><br>
+<%= link_to "Add Friend", "/friendships/new" %>
+
+<%= button_to 'Logout', '/', method: :delete %>

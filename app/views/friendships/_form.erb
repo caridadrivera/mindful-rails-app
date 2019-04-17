@@ -1,0 +1,5 @@
+<%= current_user.name %>
+<%= form_for @friendship do |f| %>
+  <%= f.number_field :friend_id %>
+<%= f.submit %>
+<% end %>
