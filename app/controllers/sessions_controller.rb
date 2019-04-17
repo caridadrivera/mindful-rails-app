@@ -4,7 +4,7 @@
     skip_before_action :authorized, only: [:new, :create]
 
     def new
-      render :new #looks in app/views/sessions/new.html.erb
+      render :new
     end
 
     def create #handles the POST request to /login

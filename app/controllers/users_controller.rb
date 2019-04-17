@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    redirect_to @user
+    redirect_to current_user
   end
 
   def edit

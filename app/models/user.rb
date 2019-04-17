@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :activities, through: :activity_instances
 
   has_secure_password
+  
   validates_uniqueness_of :email
   validates :password, presence: true
 

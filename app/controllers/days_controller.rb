@@ -15,7 +15,7 @@ class DaysController < ApplicationController
   end
 
   def create
-    # byebug
+    byebug
     @day = Day.create(day_params)
     redirect_to day_path(@day)
   end
