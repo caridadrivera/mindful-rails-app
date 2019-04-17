@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   resources :activities
   resources :days
   resources :users
+  resources :sessions, only: [:new, :create]
+
+  get "/login", to: "sessions#new", as: "login"
+  post "/login",   to: 'sessions#create'
+  delete "/logout", to: "sessions#destroy", as: "logout"
 
 
   # get "signup", to: "users#new", as: "signup"
