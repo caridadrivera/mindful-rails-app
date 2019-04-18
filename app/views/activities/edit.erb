@@ -1,1 +1,3 @@
 <%= render "form" %>
+<%= button_to "Cancel", activity_path, {method: :get} %>
+<%= button_to "Delete", @activity, :method => :delete %>

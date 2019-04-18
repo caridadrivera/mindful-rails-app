@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
       redirect_to '/' unless logged_in?
     end
 
-
+    def logged_in
+      if logged_in?
+        redirect_to user_path(current_user)
+      end
+    end
 
 end

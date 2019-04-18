@@ -1,2 +1,8 @@
-<%= @day.date %>
-<%= @users.find(@day.user_id).name %>
+<%= @day.date %><br>
+<% @day.activities.each do |activity|%>
+  <%= activity.name %><br>
+  <%= button_to "delete", @activity_instances , :method => :delete, params: {:activity_id => activity.id} %>
+<% end %>
+
+<%= button_to "Back to Activity History", days_path, {method: :get} %>
+  

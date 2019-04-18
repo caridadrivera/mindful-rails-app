@@ -1,0 +1,23 @@
+<% if current_user.id == params[:id].to_i %>
+  <%= form_for @calendar do |f| %>
+    <%= f.date_field :date %>
+  <%= f.submit %>
+<% end %>
+
+<% end %>
+<% if @user.days != [] %>
+  <% @user.days.each do |day| %>
+    <%= link_to day.date, "/users/#{current_user.id}/days/#{day.id}"  %><br>
+    <% if day.activities == []%>
+      <% day.destroy %>
+    <% else %>
+      <% day.activities.each do |activity|%>
+        <%= activity.name %><br>
+      <% end %>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= "User has no Activity History yet" %>
+<% end %>
+
+<%= button_to "Back", user_path(@user), {method: :get} %>

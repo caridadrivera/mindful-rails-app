@@ -1,0 +1,5 @@
+
+<%= form_for @today, :url => "#{current_user.id}/happiness" do |f| %>
+  <%= f.number_field :happiness %>
+  <%= f.submit %>
+<% end %>

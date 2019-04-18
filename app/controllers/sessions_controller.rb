@@ -2,6 +2,7 @@
   class SessionsController < ApplicationController
     # before_action :authorized comes from ApplicationController
     skip_before_action :authorized, only: [:new, :create, :index]
+    before_action :logged_in, only: [:index]
 
     def new
       render :new

@@ -1,12 +1,21 @@
+<% if flash[:message] %>
+  <%= flash[:message] %>
+  <br>
+  <br>
+<% end %>
+
+
+Select Activity For <%= session[:selected_date] %><br>
+
 <%= flash[:message]  %><br>
 <% @activities.each do |activity| %>
-
   <%= activity.name %><br>
-  <% flash[:activity_id] = activity.id %>
-  <%= button_to "Add Activity", "/activity_instances/new" %>
-  <%= button_to "More Info", "activity_path(activity)", {method: :get} %>
-
+  <%= button_to "Add Activity", "/activity_instances/new", method: :get, params: {:activity_id => activity.id} %>
+  <%= button_to "More Info", activity_path(activity), {method: :get} %>
 <% end %>
+<br>
+<br>
+<br>
 
 <%= button_to "New Activity", new_activity_path, {method: :get} %>
 <%= button_to "Back", user_path(current_user), {method: :get} %>
