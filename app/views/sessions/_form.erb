@@ -1,5 +1,6 @@
 
 <%= flash[:notice] %>
+<br>
 
 <%= form_tag(login_path)do %>
   <div class="field">
@@ -11,5 +12,6 @@
     <%= password_field_tag :password %>
   </div>
   <div class="actions">
+    <br>
     <%= submit_tag "Log In" %>
 <% end %>

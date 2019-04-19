@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_17_135941) do
+ActiveRecord::Schema.define(version: 2019_04_18_202319) do
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_04_17_135941) do
     t.integer "length"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "img_url", default: "https://www.extremetech.com/wp-content/uploads/2014/04/bliss-windows-xp-original-640x514.jpg"
   end
 
   create_table "activity_instances", force: :cascade do |t|
@@ -50,6 +51,7 @@ ActiveRecord::Schema.define(version: 2019_04_17_135941) do
     t.datetime "updated_at", null: false
     t.string "email"
     t.string "password_digest"
+    t.string "img_url", default: "https://t4.ftcdn.net/jpg/00/64/67/27/240_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg"
   end
 
 end

@@ -14,13 +14,4 @@ class User < ApplicationRecord
   validates :age, presence: true
   validates :about, presence: true
 
-
-  def is_today
-    self.days.find_by(date: Date.today) ? true:false
-  end
-
-  def today
-    self.days.find_by(date: Date.today)
-  end
-
 end

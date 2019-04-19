@@ -1,35 +1,84 @@
-<%# User's info  %>
-<%= @user.name %>
-<%= @user.age %>
-<%= @user.email %>
-<%= @user.password %>
-<%= @user.about %>
 
-<br>
-<br>
-Date:
-<%= Date.today %><br>
-Todays Activities: <br>
-<% if @user.is_today %>
-  <% @user.today.activities.each do |activity| %>
-    <%= activity.name %><br>
+<div class="container text-center">
+  <% if current_user.id == params[:id].to_i %>
+    <h1><strong>Welcome back, <%= @user.name.capitalize%></strong></h1>
+      <h3>Today's Date: <%= Date.today %></h3>
+  <% else %>
+    <h1><strong><%= @user.name.capitalize%>'s Profile</strong></h1>
+      <h3>Today's Date: <%= Date.today %></h3>
   <% end %>
-<% end %><br>
-<%= link_to "View Full Activities History", days_path %><br>
-<%= link_to "View Activities to add", activities_path %>
+</div>
 
-<br>
-<br>
-<br>
-Friends:
-<% @user.friends.each do |friend| %><br>
-  <%= link_to friend.name, user_path(friend.id) %><br>
-  <% if friend.is_today %>
-    <% friend.today.activities.each do |activity| %>
-      <%= activity.name %><br>
-    <% end %>
+
+<div class="af-card-container">
+  <div class="activities">
+    <div class="title">
+      <h2>Today's Activities:</h2>
+    </div>
+    <div class="input-box">
+      <% if current_user.id == params[:id].to_i %>
+        <% if !@user.today %>
+          <p><%= "You have no activities for today yet" %></p>
+<%# Happiness Update Function Here, still needs work %>
+        <%# <% else %>
+          <%# <% if @user.today[:happiness] != 0%>
+            <!-- <p><%= "Happiness for today:" %></p> -->
+            <%# <%= render "happy_form" %>
+          <%# <% else %>
+            <!-- <p><%= "Happiness for today: No input yet" %></p> -->
+            <%# <%= render "happy_form" %>
+          <%# <% end %>
+<%# Happiness Update form Here %>
+
+        <% end %>
+      <% else %>
+        <% if !@user.today %>
+          <p><%= "User has no activities yet today" %></p>
+        <% else %>
+          <% if @user.today[:happiness] != 0%>
+            <%= "Happiness for today: #{@user.today[:happiness]}" %>
+          <% else %>
+            <%= "Happiness for today: No input yet" %>
+          <% end %>
+        <% end %>
+      <% end %>
+      <div class="activities-list">
+        <% if @user.is_today %>
+          <% @user.today.activities.each do |activity| %>
+            <p><%= activity.name %></p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="bottom-container">
+      <%= link_to "View Full Activities History", days_path %>
+      <% if current_user.id == params[:id].to_i %>
+      <br>
+        <%= link_to "View Activities to add", activities_path %>
+      <% else %>
+        <%= link_to 'Return to your page', user_path(current_user), method: :get %>
+      <% end %>
+    </div>
+  </div>
+
+ <% if current_user.id == params[:id].to_i %>
+  <div class="friends">
+    <div class="title">
+      <h2>Friend's Activity:</h2>
+    </div>
+    <div class="input-box">
+        <% @user.friends.each do |friend| %>
+          <p><%= link_to friend.name, user_path(friend.id) %></p>
+          <% if friend.is_today %>
+            <% friend.today.activities.each do |activity| %>
+              <%= activity.name %><br>
+            <% end %>
+          <% end %>
+        <% end %><br>
+    </div>
+    <div class="bottom-container">
+      <%= link_to "Add Friend", "/friendships/new" %>
   <% end %>
-<% end %><br>
-<%= link_to "Add Friend", "/friendships/new" %>
-
-<%= button_to 'Logout', '/', method: :delete %>
+    </div>
+  </div>
+</div>

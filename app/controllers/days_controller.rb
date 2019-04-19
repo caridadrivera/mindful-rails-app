@@ -1,5 +1,5 @@
 class DaysController < ApplicationController
-  before_action :this_day, only: [:show, :edit, :update]
+  before_action :this_day, only: [:show, :edit]
 
   def index
     @days = Day.all
@@ -7,7 +7,7 @@ class DaysController < ApplicationController
   end
 
   def show
-    @users = User.all
+    @day = Day.find(params[:day_id])
   end
 
   def new
@@ -15,7 +15,6 @@ class DaysController < ApplicationController
   end
 
   def create
-    byebug
     @day = Day.create(day_params)
     redirect_to day_path(@day)
   end
@@ -25,8 +24,9 @@ class DaysController < ApplicationController
   end
 
   def update
-    @day.update(day_params)
-    redirect_to @day
+    @today = current_user.today
+    @today.update(happiness: params[:day][:happiness].to_i)
+    redirect_to user_path(current_user)
   end
 
   def destroy
@@ -36,7 +36,7 @@ class DaysController < ApplicationController
   private
 
   def this_day
-    @day = Day.find(params[:id])
+    @day = Day.find(params[:day_id])
   end
 
   def day_params()

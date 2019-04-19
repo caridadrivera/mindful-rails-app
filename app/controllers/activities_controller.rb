@@ -1,5 +1,5 @@
 class ActivitiesController < ApplicationController
-  before_action :this_activity, only: [:show, :edit, :update]
+  before_action :this_activity, only: [:show, :edit, :update, :destroy]
 
   def index
     @activities = Activity.all
@@ -18,24 +18,6 @@ class ActivitiesController < ApplicationController
     redirect_to activities_path
   end
 
-  def create_activity_instance
-    check_today
-    added_activity = ActivityInstance.create(day_id: @today.id, activity_id: flash[:activity_id])
-    if added_activity.valid?
-      flash[:message] = "Activity Added"
-    end
-    redirect_to activities_path
-  end
-
-  def check_today
-    if this_day = current_user.days.find_by(date: Date.today)
-      @today = this_day
-    else
-      @today = Day.create(date: Date.today, user_id: current_user.id)
-    end
-  end
-
-
   def edit
 
   end
@@ -46,7 +28,13 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
-
+    all_instances = @activity.activity_instances
+    all_instances.each do |instance|
+      instance.destroy
+    end
+    @activity.destroy
+    flash[:message] = "#{@activity.name} has been deleted"
+    redirect_to activities_path
   end
 
   private

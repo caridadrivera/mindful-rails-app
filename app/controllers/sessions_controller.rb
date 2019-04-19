@@ -2,6 +2,7 @@
   class SessionsController < ApplicationController
     # before_action :authorized comes from ApplicationController
     skip_before_action :authorized, only: [:new, :create, :index]
+    before_action :logged_in, only: [:index]
 
     def new
       render :new
@@ -19,7 +20,7 @@
         # redirect_to user_path(@user)
         redirect_to @user
       else
-        flash[:notice] = 'Please enter a valid email and password'
+        flash[:notice] = 'Enter a valid email and password'
         redirect_to '/'
       end
     end
@@ -27,7 +28,6 @@
 
     def destroy
       session[:user_id] = nil
-      flash[:notice] = 'u logged out'
       redirect_to login_path
     end
   end

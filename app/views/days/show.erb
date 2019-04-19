@@ -1,2 +1,14 @@
-<%= @day.date %>
-<%= @users.find(@day.user_id).name %>
+<div class="container text-center">
+  <h1><strong><%= @day.date %></strong></h1>
+</div>
+
+<div class="af-card-container">
+  <div class="date">
+    <% @day.activities.each do |activity|%>
+      <p><%= activity.name %>
+      <%= link_to "<--- delete", "/activity_instance/#{activity.id}/#{params[:day_id]}", :method => :delete, params: {:something => activity.id} %></p>
+    <% end %>
+
+    <%= button_to "Back to Activity History", days_path, {method: :get} %>
+  </div>
+</div>

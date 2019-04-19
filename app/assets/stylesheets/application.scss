@@ -1,0 +1,72 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+ @import "bootstrap";
+ @import "users";
+ @import "days";
+
+
+ @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+
+
+ body {
+   margin: 0;
+   padding: 0;
+   font-family: sans-serif;
+   background: url(images/background.jpg);
+   background-size: cover;
+   height: 100vh;
+
+ }
+
+ .navbar{
+   background: rgba(0,0,0,0.5);
+ }
+
+ .box{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 300px;
+   padding: 10px 0 0;
+   background: rgba(0,0,0,0.5);
+   box-sizing: border-box;
+   box-shadow: 0 15px 25px rgba(0,0,0,.4);
+   border-radius: 10px;
+
+ }
+
+ .box h2 {
+   margin-top: 10px;
+   padding: 0;
+   color:#fff;
+   text-align: center;
+ }
+
+ .inputBox {
+   position: relative;
+   z-index: 1;
+   max-width: 360px;
+   padding: 20px;
+   text-align: center;
+   color: #fff;
+ }
+
+
+ .inputBox .message {
+   margin: 15px 0 0;
+   color: #b3b3b3;
+   font-size: 12px;
+ }

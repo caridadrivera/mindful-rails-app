@@ -1,16 +1,8 @@
-<!DOCTYPE html>
+<div class="box">
+    <h2>Login</h2>
 
-
-<header>
-    <nav>
-        <div class="row">
-
-        </div>
-    </nav>
-    <div class="main-text-box">
-        <h1>Mindful</h1>
-       <%= button_to "Sign Up", new_user_path, {method: :get} %>
-       <%= render 'form' %>
-    </div>
-
-</header>
+  <div class="inputBox">
+      <%= render 'form' %>
+  <p class="message">Not registered? <%= link_to "Sign Up", new_user_path, {method: :get} %></p>
+  </div>
+</div>
