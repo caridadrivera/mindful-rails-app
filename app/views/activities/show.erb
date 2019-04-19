@@ -1,4 +1,17 @@
-<%= @activity.name %>
 
-<%= button_to "Edit", edit_activity_path, {method: :get} %>
-<%= button_to "Show All", activities_path, {method: :get} %>
+
+
+
+
+<div class="container text-center">
+  <h1><strong><%= @activity.name %></strong></h1>
+</div>
+
+  <div class="activity-container">
+    <div class="activity-show">
+      <img class="picture-crop" src= <%= @activity.img_url %> alt="Card image cap">
+      <p class="card-title"><%= @activity.description %></p>
+      <p><%= button_to "Edit", edit_activity_path, {method: :get} %>
+      <%= button_to "Show All", activities_path, {method: :get} %></p>
+    </div>
+  </div>

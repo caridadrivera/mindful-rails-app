@@ -45,7 +45,7 @@
       <div class="activities-list">
         <% if @user.is_today %>
           <% @user.today.activities.each do |activity| %>
-            <p><%= activity.name %></p>
+            <p>-<%= activity.name %></p>
           <% end %>
         <% end %>
       </div>
@@ -68,7 +68,7 @@
     </div>
     <div class="input-box">
         <% @user.friends.each do |friend| %>
-          <p><%= link_to friend.name, user_path(friend.id) %></p>
+          <p><%= link_to friend.name.capitalize, user_path(friend.id) %></p>
           <% if friend.is_today %>
             <% friend.today.activities.each do |activity| %>
               <%= activity.name %><br>

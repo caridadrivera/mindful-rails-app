@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
   root 'sessions#index'
-
+  get "/friendships/:friend_id/new", to: "friendships#create"
   get "/users/logout", to: "sessions#destroy", as: "logout"
-  get "/activity_instances/new", to: "activity_instances#create"
+  get "/activity_instances/new/:activity_id", to: "activity_instances#create"
   patch "users/:id/happiness", to: "days#update"
   resources :session
   resources :friendships
