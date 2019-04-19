@@ -1,23 +1,34 @@
-<% if current_user.id == params[:id].to_i %>
-  <%= form_for @calendar do |f| %>
-    <%= f.date_field :date %>
-  <%= f.submit %>
-<% end %>
+<div class="container text-center">
+  <h1><strong>Activity History</strong></h1>
+</div>
 
-<% end %>
-<% if @user.days != [] %>
-  <% @user.days.each do |day| %>
-    <%= link_to day.date, "/users/#{current_user.id}/days/#{day.id}"  %><br>
-    <% if day.activities == []%>
-      <% day.destroy %>
-    <% else %>
-      <% day.activities.each do |activity|%>
-        <%= activity.name %><br>
+
+<div class="af-card-container">
+  <div class="history">
+    <div class="information">
+      <% if @user.days != [] %>
+        <% @user.days.each do |day| %>
+          <h6><%= link_to day.date, "/users/#{current_user.id}/days/#{day.id}"%></h6>
+          <% if day.activities == []%>
+            <% day.destroy %>
+          <% else %>
+            <% day.activities.each do |activity|%>
+              <p><%= activity.name %></p>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= "User has no Activity History yet" %>
       <% end %>
-    <% end %>
-  <% end %>
-<% else %>
-  <%= "User has no Activity History yet" %>
-<% end %>
-
-<%= button_to "Back", user_path(@user), {method: :get} %>
+    </div>
+    <div class="title">
+      <% if current_user.id == params[:id].to_i %>
+        <h6>Add Activity to Specific Day</h6>
+        <%= form_for @calendar do |f| %>
+          <%= f.date_field :date %>
+          <%= f.submit "Select" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

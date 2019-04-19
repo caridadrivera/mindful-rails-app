@@ -1,12 +1,18 @@
-
 <% if flash[:errors] %>
   <% flash[:errors].each do |error| %>
     <p><%= error %></p>
   <% end %>
 <% end %>
 
+<body>
 
-<div class="row">
-  <%= render "form" %>
+      <div class="box">
+          <h2>Sign Up</h2>
 
-  </div>
+        <div class="inputBox">
+            <%= render 'form' %>
+        </div>
+      </div>
+
+  <%= yield %>
+</body>

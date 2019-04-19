@@ -36,7 +36,7 @@ class DaysController < ApplicationController
   private
 
   def this_day
-    @day = Day.find(params[:id])
+    @day = Day.find(params[:day_id])
   end
 
   def day_params()

@@ -28,6 +28,10 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
+    all_instances = @activity.activity_instances
+    all_instances.each do |instance|
+      instance.destroy
+    end
     @activity.destroy
     flash[:message] = "#{@activity.name} has been deleted"
     redirect_to activities_path

@@ -1,3 +1,70 @@
 // Place all the styles related to the days controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.date {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  height: 450px;
+  width: 45%;
+  overflow: scroll;
+  background: rgba(0,0,0,0.5);
+  box-shadow: 0 15px 25px rgba(0,0,0,.2);
+  border-radius: 5px;
+  padding: 20px;
+  h2 {
+    color:#fff;
+    text-align: center;
+  }
+  p {
+    color:#fff;
+    text-align: center;
+    display: inline;
+  }
+  a {
+        color: #ffff;
+  }
+}
+
+.history {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  text-indent: 3;
+  height: 700px;
+  width: 45%;
+  background: rgba(0,0,0,0.5);
+  box-shadow: 0 15px 25px rgba(0,0,0,.2);
+  border-radius: 5px;
+  padding-top: 2%;
+  h2 {
+    color:#fff;
+    text-align: center;
+  }
+  h6 {
+    color:#fff;
+    text-align: center;
+  }
+  p {
+    color:#fff;
+    text-align: left;
+    margin-left: 20%;
+  }
+  a {
+        color: #ffff;
+        text-decoration: underline
+  }
+  .title {
+    padding: 20px;
+    padding-bottom: 30px;
+    text-align: center
+  }
+  .information {
+    text-align: left;
+    height: 85%;
+    overflow: scroll;
+  }
+}

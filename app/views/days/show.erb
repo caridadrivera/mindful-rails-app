@@ -1,8 +1,14 @@
-<%= @day.date %><br>
-<% @day.activities.each do |activity|%>
-  <%= activity.name %><br>
-  <%= button_to "delete", @activity_instances , :method => :delete, params: {:activity_id => activity.id} %>
-<% end %>
+<div class="container text-center">
+  <h1><strong><%= @day.date %></strong></h1>
+</div>
 
-<%= button_to "Back to Activity History", days_path, {method: :get} %>
-  
+<div class="af-card-container">
+  <div class="date">
+    <% @day.activities.each do |activity|%>
+      <p><%= activity.name %>
+      <%= link_to "<--- delete", "/activity_instance/#{activity.id}/#{params[:day_id]}", :method => :delete, params: {:something => activity.id} %></p>
+    <% end %>
+
+    <%= button_to "Back to Activity History", days_path, {method: :get} %>
+  </div>
+</div>
