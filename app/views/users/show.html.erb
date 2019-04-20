@@ -71,7 +71,9 @@
           <p><%= link_to friend.name.capitalize, user_path(friend.id) %></p>
           <% if friend.is_today %>
             <% friend.today.activities.each do |activity| %>
-              <%= activity.name %><br>
+              <ul>
+                <p><%= activity.name %></p>
+              </ul>
             <% end %>
           <% end %>
         <% end %><br>
