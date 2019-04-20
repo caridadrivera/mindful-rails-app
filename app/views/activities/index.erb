@@ -1,34 +1,27 @@
 <div class="container text-center">
   <h1><strong>All Activities</strong></h1>
   <% if flash[:message] %>
-  <%= flash[:message] %>
-  <% end %><br>
-  <% if session[:selected_date] %>
-    <%= "Add an Activity for #{session[:selected_date]}" %>
-  <% else %>
-    <%= "Add an Activity for Today" %>
+  <%= flash[:message] %><br>
   <% end %>
-</div>
+  <% if session[:selected_date] %>
+    <h4><%= "Add an Activity for #{session[:selected_date]}" %></h4>
+  <% else %>
+    <h4><%= "Add an Activity for Today" %></h4>
+  <% end %>
 
 
-
-
-
-<div class="af-card-container">
-  <div class="activity-list">
-
+  <div class="special-card-container">
     <% @activities.each do |activity| %>
-      <div class="activitiy-list">
-        <%= activity.name %><br>
-        <%= button_to "Add Activity", "/activity_instances/new", method: :get, params: {:activity_id => activity.id} %>
-        <%= button_to "More Info", activity_path(activity), {method: :get} %>
+      <div class="special-card">
+        <div class="special-card-body">
+          <img class="center-cropped" src= <%= activity.img_url %> alt="Card image cap">
+          <h5 class="card-title"><%= activity.name %></h5>
+          <p><%= link_to "Add Activity", "/activity_instances/new/#{activity.id}", method: :get %>
+          <%= link_to "More Info", activity_path(activity), {method: :get} %></p>
+        </div>
       </div>
     <% end %>
-    <br>
-    <br>
-    <br>
-
-    <%= button_to "Create a New Activity", new_activity_path, {method: :get} %>
-    <%= button_to "Back", user_path(current_user), {method: :get} %>
   </div>
+  <%= button_to "Create a New Activity", new_activity_path, {method: :get} %>
+  <%= button_to "Back", user_path(current_user), {method: :get} %>
 </div>

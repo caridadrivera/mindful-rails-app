@@ -33,5 +33,4 @@ class ActivityInstancesController < ApplicationController
     @activity_instance.destroy
     redirect_to "/users/#{current_user.id}/days/#{params[:day_id]}"
   end
-
 end

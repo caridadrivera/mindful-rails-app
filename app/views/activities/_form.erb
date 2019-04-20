@@ -3,9 +3,9 @@
   <%= f.text_field :name %><br>
   <%= f.label :description %>
   <%= f.text_field :description %><br>
-  <%= f.label :length, "Estimated Time: " %>
-  <%= f.number_field :length %> mins<br>
+  <%= f.label :length, "Estimated Time(mins): " %>
+  <%= f.number_field :length %><br>
   <%= f.label :img_url, "Picture URL: "%>
-  <%= f.text_field :img_url %>
+  <%= f.text_field :img_url %><br><br>
   <%= f.submit %>
 <% end %>
