@@ -1,24 +1,12 @@
-# README
+# MINDFUL
++ Using only Ruby on Rails for backend and front end, this app persists data and displays it beautifully in the front-end.
++ This application allows you to post activities you’ve done during the day to stay mindful, ie: running, meditating, ect.
++ Using Active Record and self-referential relationships, the user is able to follow other users and see other users activity history
++ Users and activities are able to stay logged-in through rails sessions authorization
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Getting Started 
 
-Things you may want to cover:
+Install Rails
+Clone github repo
+Run Rails s
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
